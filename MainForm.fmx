@@ -1,0 +1,167 @@
+object TraceVisualizerForm: TTraceVisualizerForm
+  Caption = 'Trace Visualizer'
+  ClientHeight = 640
+  ClientWidth = 1100
+  Color = $FF0F0F10
+  OnCreate = FormCreate
+  object Shell: TRectangle
+    Align = Contents
+    Margins.Left = 24
+    Margins.Top = 24
+    Margins.Right = 24
+    Margins.Bottom = 24
+    Fill.Color = $FF1F1F1F
+    Stroke.Color = $FF2D2D2D
+    Stroke.Thickness = 1
+    XRadius = 6
+    YRadius = 6
+    object Header: TRectangle
+      Align = Top
+      Height = 110
+      Fill.Color = $FF1B1B1B
+      Stroke.Color = $FF2B2B2B
+      Stroke.Thickness = 1
+      object HeaderLayout: TLayout
+        Align = Top
+        Height = 40
+        Margins.Left = 22
+        Margins.Top = 16
+        Margins.Right = 22
+        object ChipBox: TRectangle
+          Position.X = 0
+          Position.Y = 0
+          Width = 118
+          Height = 22
+          Fill.Color = $FF083449
+          Stroke.Color = $FF145575
+          Stroke.Thickness = 1
+          XRadius = 11
+          YRadius = 11
+          object ChipLabel: TLabel
+            Align = Client
+            Text = 'trace-view'
+            TextSettings.Font.Size = 11.000000000000000000
+            TextSettings.Font.Style = [fsBold]
+            TextSettings.FontColor = $FF2DB6FF
+            TextSettings.HorzAlign = Center
+            TextSettings.VertAlign = Center
+          end
+        end
+        object TitleLabel: TLabel
+          Position.X = 130
+          Position.Y = 0
+          Text = 'TRACE VISUALIZER'
+          TextSettings.Font.Size = 18.000000000000000000
+          TextSettings.Font.Style = [fsBold]
+          TextSettings.FontColor = $FFD9E3EF
+        end
+      end
+      object FileLayout: TLayout
+        Align = Top
+        Height = 32
+        Margins.Left = 22
+        Margins.Top = 8
+        Margins.Right = 22
+        object FileLabel: TLabel
+          Position.X = 0
+          Position.Y = 4
+          Text = 'File:'
+          TextSettings.Font.Size = 12.000000000000000000
+          TextSettings.FontColor = $FF8C96A4
+        end
+        object FileEdit: TEdit
+          Position.X = 50
+          Position.Y = 3
+          Width = 420
+          Height = 26
+          TextSettings.Font.Size = 12.000000000000000000
+          TextSettings.FontColor = $FFD9E3EF
+        end
+        object BrowseButton: TButton
+          Position.X = 480
+          Position.Y = 3
+          Width = 36
+          Height = 26
+          Text = '...'
+          OnClick = BrowseButtonClick
+        end
+        object VisualizeButton: TButton
+          Position.X = 528
+          Position.Y = 3
+          Width = 90
+          Height = 26
+          Text = 'Visualize'
+          OnClick = VisualizeButtonClick
+        end
+      end
+      object MetaLayout: TLayout
+        Align = Bottom
+        Height = 24
+        Margins.Left = 22
+        Margins.Bottom = 8
+        Margins.Right = 22
+        object MetaLabel1: TLabel
+          Position.X = 0
+          Text = 'session: 0x7f2a'
+          TextSettings.Font.Size = 12.000000000000000000
+          TextSettings.FontColor = $FF8C96A4
+        end
+        object MetaLabel2: TLabel
+          Position.X = 160
+          Text = 'thread: main'
+          TextSettings.Font.Size = 12.000000000000000000
+          TextSettings.FontColor = $FF8C96A4
+        end
+        object MetaLabel3: TLabel
+          Position.X = 320
+          Text = 'runtime: android-64'
+          TextSettings.Font.Size = 12.000000000000000000
+          TextSettings.FontColor = $FF8C96A4
+        end
+      end
+    end
+    object TraceListView: TListView
+      Align = Client
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      ItemAppearance.ItemHeight = 30.000000000000000000
+      ShowSelection = False
+    end
+    object Footer: TRectangle
+      Align = Bottom
+      Height = 36
+      Fill.Color = $FF1A1A1A
+      Stroke.Color = $FF2B2B2B
+      Stroke.Thickness = 1
+      object FooterLayout: TLayout
+        Align = Client
+        Margins.Left = 22
+        Margins.Right = 22
+        object FooterLabel1: TLabel
+          Position.X = 0
+          Text = 'Trace depth: 6'
+          TextSettings.Font.Size = 12.000000000000000000
+          TextSettings.FontColor = $FF8C96A4
+        end
+        object FooterLabel2: TLabel
+          Position.X = 180
+          Text = 'Frames: 42'
+          TextSettings.Font.Size = 12.000000000000000000
+          TextSettings.FontColor = $FF8C96A4
+        end
+        object FooterLabel3: TLabel
+          Position.X = 360
+          Text = 'Status: streaming'
+          TextSettings.Font.Size = 12.000000000000000000
+          TextSettings.FontColor = $FF8C96A4
+        end
+      end
+    end
+  end
+  object TraceDialog: TOpenDialog
+    Left = 24
+    Top = 24
+  end
+end
